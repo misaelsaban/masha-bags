@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+a{
+  color: black;
+  text-decoration: none;
+}
+a:hover{
+  color: black;
+  text-decoration: none;
+}
+
+.list-style-none{
+  list-style: none;
+}
+.carousel-item{
+  max-height: 550px;
+}
+.carrito{
+  font-size: 1.4em;
+}
+.carrito i{
+  margin-right: 10px;
+}
+.itemCount{
+  display: flex;
+}
+.logoMasha{
+  font-family: 'Jost', sans-serif;
+  font-size: 2.5em;
+  text-align: center;
+  font-weight: 600;
+}
+.navbar-nav{
+  margin: 0px auto;
+}
+.nav-item{
+  font-size: 1.2em;
+}
+.barraMenu{
+  height: 30px;
+  background-color: #80808061;
+  text-align: center;
+}
+.barraMenu a{
+  text-align: center;
+  text-decoration:none;
+  font-size: .8em;
+  color: black;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(0 0 0);
+  font-size: 0.9em!important;
+}
+
+.section-title {
+  width: 100%;
+  overflow: hidden;
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  line-height: initial;
+  vertical-align: middle;
+  text-align: center;
+  text-transform: uppercase;
+}
+.section-title::before, .section-title::after {
+  content: '';
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:focus,.btn-primary:visited{
+  color: white;
+  background-color: black;
+  border: black solid 1px;
+  border-radius: 0px;
+  padding: 10px 20px;
+}
+.btn-primary:hover{
+  color: black;
+  background-color: white;
+  border: black solid 1px;
+  border-radius: 0px;
+  padding: 10px 20px;
+}
+
+.btn-secondary, .btn-secondary:active, .btn-secondary:focus,.btn-secondary:visited{
+  color: black;
+  background-color: white;
+  border: black solid 1px;
+  border-radius: 0px;
+  padding: 10px 20px;
+}
+.btn-secondary:hover{
+  color: white;
+  background-color: black;
+  border: black solid 1px;
+  border-radius: 0px;
+  padding: 10px 20px;
+}
+
+.btnCounter{
+  color: white;
+  background-color: black;
+  border: black solid 1px;
+  border-radius: 0px;
+  font-weight: 700;
+}
+.textProductDescription{
+  font-size: .8em;
+  text-align: justify;
+}
+.card{
+  width: auto!important;
+}
+.cardShadow{
+  /*-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);*/
+}
+.page-footer{
+  background-color: black;
+  color: white;
+}
+.page-footer a{
+  color: white;
+}
+.footer-copyright{
+  background-color: #131415fc;
+}
+.precio{
+  font-size: 2em;
+  font-weight: 500;
+}
+.menuCategorias{
+  width: 100%;
+}
+.menuCategorias{
+  width: 100%;
+  border-top: #80808061 solid 1px;
+  border-bottom: #80808061 solid 1px;
+}
+.menuCategorias ul{
+	min-width: 696px;
+	list-style: none;
+  padding-top: 20px;
+  text-align: center; 
+  }
+  
+.menuCategorias li {
+  display: inline-flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  }
+.loader-masha{
+  color: black;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.badge-masha{
+  background-color: black!important;
+}
+
+.title-PP{
+  font-weight: 2em;
+}
+.itemCarritoList{
+  border-top: #80808061 solid 1px;
+  padding: 1em;
+}
+.carrito-title{
+  color: black;
+  font-weight: 600;
+}
+.input-error{
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+.textos-slider{
+  color: black!important;
+}
+.textos-slider h5{
+  font-weight: 500;
+  font-size: 2.5em;
+  margin-top: -8em;
+  text-transform: uppercase;
+}
+.textos-slider p{
+  text-transform: uppercase;
+}
+.derecha{
+  text-align: right;
+}
+.izquierda{
+  text-align: left;
+}
+.banner1{
+  text-align: center;
+  padding-right: 3em;
+}
+.banner1 h5{
+  font-weight: 500;
+  font-size: 2.5em;
+  margin-top: 5em;
+  text-transform: uppercase;
+}
+.banner1 p{
+  text-transform: uppercase;
+}
