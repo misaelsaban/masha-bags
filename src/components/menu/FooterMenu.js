@@ -39,7 +39,7 @@ function FooterMenu() {
                     <h5 className="text-uppercase">SÍGUENOS</h5>
                     <ul className="list-unstyled">
                         <li>
-                            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> @masha.bags.ar</a>
+                            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> masha.bags.ar</a>
                         </li>
                         <li>
                             <a href="https://www.facebook.com/"><i class="fab fa-facebook-square"></i> Masha Bags</a>

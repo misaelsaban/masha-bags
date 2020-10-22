@@ -115,7 +115,8 @@ return (
           </div>
           <div className="col-4">
             <h2 className="card-title">{data.nombre}</h2>
-            <h1>$ {data.precio}</h1>
+            <h1 className="mt-3">$ {data.precio}</h1>
+            <h5 className="mt-3 mb-3">SKU: {data.id}</h5>
             <Counter callback={traeCantidad}/>
             <a href="#" className="btn btn-primary mt-3 d-block" onClick={AddtoCart}>AGREGAR AL CARRITO</a>
           </div>
@@ -123,12 +124,10 @@ return (
             <h2 className="section-title">Descripción</h2>
             <p>{data.descripcion}</p>
             <h2 className="section-title">MEDIDAS</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus in turpis at facilisis.
-              Pellentesque sodales ut ante eu mollis. Maecenas laoreet efficitur facilisis. In vehicula justo eget cursus blandit.</p>
+            <p>{data.medidas}</p>
           </div>
           </>
-        }      
-        
+        }
       </div> }    
     </div>
     <FooterMenu/>

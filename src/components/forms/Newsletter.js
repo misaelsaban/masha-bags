@@ -1,74 +1,148 @@
-import React, { useState } from 'react';
-import { Formik, Form, Field } from 'formik';
+import React from 'react';
 
 
+class Newsletter extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      enviado: false,
+      formIsValid: false,
+      classInput: 'form-control',
+      nombreValido: false,
+      apellidoValido: false,
+      mailValido: false,
+      submit: false
+    };
 
-function validateEmail(value) {
-  let error;
-  if (!value) {
-    error = 'El campo no puede ser vacio.';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-    error = 'Dirección de email invalida.';
+    this.validateNombre = this.validateNombre.bind(this);
+    this.validateApellido = this.validateApellido.bind(this);
+    this.validateMail = this.validateMail.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  return error;
-}
 
-function validateNombre(value) {
-  let error;
-  if (!value) {
-    error = 'El campo no puede ser vacio.';
-  }
-  return error;
-}
-function validateApellido(value) {
-  let error;
-  if (!value) {
-    error = 'El campo no puede ser vacio.';
-  }
-  return error;
-}
+  validateNombre(e) {
+    let target = e.target;
+    let value = target.value;
+    let name = target.name;
+    
+    if(!value){
+      target.className = 'form-control is-invalid';
+      return false;
+    } else {
 
-const Newsletter = (props) => (
-
-  <div className="container mt-5">
-    <h4 className="section-title">¡Suscribete al Newsletter!</h4>
-    <Formik
-      initialValues={{
-        nombre: '',
-        apellido: '',
-        email: '',
+    }
         
-      }}
-      onSubmit={values => {
-        // same shape as initial values
-       console.log(values);
-      }}
-    >
-      {({ errors, touched, validateField, validateForm }) => (
+    target.className = 'form-control';
+
+    this.setState({
+      [name]: value,
+      nombreValido: true
+    });
+    
+  }
+
+  validateApellido(e) {
+    let target = e.target;
+    let value = target.value;
+    let name = target.name;
+    
+    if(!value){
+      target.className = 'form-control is-invalid';
+      return false;
+    } else {
+
+    }
         
-        <Form>
-          <div className="row">
-            <div className="col">
-                <Field name="nombre" validate={validateNombre} placeholder="Nombre" className={errors.nombre ? "form-control is-invalid": "form-control"} />
-                    {errors.nombre && touched.nombre && <div className="input-error">{errors.nombre}</div>}
-            </div>
-            <div className="col">
-                <Field name="apellido" validate={validateApellido} placeholder="Apellido" className={errors.apellido ? "form-control is-invalid": "form-control"} />
-                    {errors.apellido && touched.apellido && <div className="input-error">{errors.apellido}</div>}
-            </div>
-            <div className="col">
-                <Field id="email1" name="email" validate={validateEmail} placeholder="Correo Electrónico" className={errors.email ? "form-control is-invalid": "form-control"} />
-                    {errors.email && touched.email && <div className="input-error">{errors.email}</div>}
-            </div>
-            <div className="col">
-                <button type="submit" className="btn btn-primary">SUSCRIBIRSE</button>
-            </div>
+    target.className = 'form-control';
+
+    this.setState({
+      [name]: value,
+      apellidoValido: true
+    });
+    
+  }
+  validateMail(e){
+    let target = e.target;
+    let value = target.value;
+    let name = target.name;
+
+    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+      target.className = 'form-control is-invalid';
+      return false;
+    }
+
+    target.className = 'form-control';
+
+    this.setState({
+      [name]: value,
+      mailValido: true
+    });
+
+  }
+
+  handleSubmit(e) {
+    if(this.state.nombreValido && this.state.apellidoValido && this.state.mailValido){
+        this.setState({
+          enviado: true
+        });
+    } else {
+      
+    }
+    e.preventDefault();    
+  }
+
+
+  render() {
+    if(this.state.enviado){
+      return (
+        <div className="container mt-5">
+        <h4 className="section-title">¡Suscribete al Newsletter!</h4>
+          <div className="text-center title-thankyou">¡Muchas gracias!</div>
+          <p className="text-center">Bienvenido a Masha Bags, vas a recibir ofertas y promociones.</p>
+        </div>
+      );
+    } else {
+      return(
+        <div className="container mt-5">
+        <h4 className="section-title">¡Suscribete al Newsletter!</h4>
+        <form>
+        <div className="row">
+          <div className="col">
+            <input
+              id="Nombre"
+              name="Nombre"
+              type="text"
+              className={this.state.classInput}
+              placeholder="Nombre"
+              onChange={this.validateNombre} />
           </div>
-        </Form>
-      )}
-    </Formik>
-  </div>
-);
+          <div className="col">
+            <input
+              name="Apellido"
+              type="text"
+              className={this.state.classInput}
+              placeholder="Apellido"
+              onChange={this.validateApellido} />
+          </div>
+          <div className="col">
+            <input
+              name="Email"
+              type="text"
+              className={this.state.classInput}
+              placeholder="Email"
+              onChange={this.validateMail} />
+          </div>
+          <div className="col">
+            <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>SUSCRÍBETE</button>
+          </div>
+        </div>
+      </form>
+    </div>
+      );
+   }
+  }
+
+}
 
 export default Newsletter;

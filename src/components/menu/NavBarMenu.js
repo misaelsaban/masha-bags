@@ -76,25 +76,22 @@ class NavBarMenu extends React.Component{
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link to={'/'}>
+                    <Link to={'/categories/ofertas'}>
                       <a className="nav-link" href="#">OFERTAS</a>
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link to={'/'}>
+                    <Link to={'/categories/verano-2020'}>
                       <a className="nav-link" href="#">VERANO 2020</a>
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link to={'/'}>
-                      <a className="nav-link" href="#">OUTLET</a>
+                    <Link to={'/categories/winter-outlet'}>
+                      <a className="nav-link" href="#">WINTER OUTLET</a>
                     </Link>
                   </li>
                 </ul>
                 <ul className="navbar-nav mr-0">
-                  <li className="nav-item">
-                    <i className="far fa-heart" style={{"font-size": "1.4em","margin-right": ".8em","margin-top": "5px"}}></i>
-                  </li>
                   <li className="nav-item">
                     <Link to={'/cart'}>
                       <CartIcon icono={this.state.estado}/>
