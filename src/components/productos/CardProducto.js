@@ -21,7 +21,7 @@ class CardProducto extends React.Component{
 
     render() {
         return (
-            <div className="col-3">
+            <div className="col-3 mb-4">
             <Link to={'/product/' + this.props.data.id} >
                 <div className="card cardShadow" style={{"width": "18rem"}}>
                     <img className="card-img-top" src={this.props.data.imagen} alt="img"/>

@@ -39,7 +39,7 @@ export default function ListaProductosEnCarrito(props){
     function eliminaProducto(id){
         console.log(id);
         for (let i = 0; i < cart.length; i++) {
-            if(cart[i].id == id){
+            if(cart[i].id === id){
                 setCant(cant - cart[i].cantidad)
                 cart.splice(i,1);
                }
@@ -53,7 +53,7 @@ export default function ListaProductosEnCarrito(props){
       },[cart]);
    
     
-return <div className="row mt-5">
+return <div className={props.margin ? "row mt-1": "row mt-5"}>
         <h4>Tiene {itemsTotal} productos.</h4>
         <div className="col-12">
             
@@ -87,26 +87,28 @@ return <div className="row mt-5">
                 </div>)
                 }    
             </ul>
-            
         </div>
-        
-        <div className="col-12">
+        <hr></hr>
         <hr></hr>    
-        </div>
-        <div className="col-8">
-            
-        </div>
-        <div className="col-4 text-right font-weight-bold">
-            
+        <div className="offset-8 col-4 text-right font-weight-bold">
             { !props.checkout
             ? <>
             <p style={{"font-size": "2em"}}>Total: $ {precioTotal}</p>
-            <Link to={'/checkout/'}>
-                    <a href="#" className="btn btn-primary mt-3 d-block">PROCEDER A LA COMPRA</a>
-                </Link>
-                <Link to={'/productos/'}>
-                    <a href="#" className="btn btn-secondary mt-3 d-block">CONTINUAR COMPRANDO</a>
-                </Link>
+                {props.modal
+                ? <>
+                    <Link to={'/checkout/'}>
+                        <a href="#" className="btn btn-primary mt-3 d-block">PROCEDER A LA COMPRA</a>
+                    </Link>
+                </>
+                :<>
+                    <Link to={'/checkout/'}>
+                        <a href="#" className="btn btn-primary mt-3 d-block">PROCEDER A LA COMPRA</a>
+                    </Link>
+                    <Link to={'/productos/'}>
+                        <a href="#" className="btn btn-secondary mt-3 d-block">CONTINUAR COMPRANDO</a>
+                    </Link>
+                </>
+                }
             </>
             : <><p style={{"font-size": "1.5em"}}>Total: $ {precioTotal}</p></>
             }

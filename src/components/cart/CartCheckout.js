@@ -7,7 +7,6 @@ import {CartContext} from '../../context/cartContext'
 import Loading from '../general/Loading';
 import {Link} from 'react-router-dom';
 
-
 import {getFirestore} from '../../firebase';
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -52,8 +51,10 @@ const CartCheckout = () => {
 
   return (
     <div>
+
       <NavbarMenu/>
       <div className="container">
+
       {loading
       ? <Loading tamanio={true}/>
       : <>
@@ -64,7 +65,10 @@ const CartCheckout = () => {
 
             </div>
           : <>
-              <h1 className="mt-3 text-center">Checkout</h1> 
+            <h1 className="mt-3 text-center">Checkout</h1> 
+            { cart.length === 0
+            ? <div className="text-center mt-5">Su carrito no tiene productos, puede comprar haciendo <Link to={'/productos'}><a className="link" href="#">CLIC AQUÍ.</a></Link></div>
+            : <>  
               <div className="row">
                   <div className="col-8">
                       <ListaProductosEnCarrito checkout={true}/>
@@ -73,12 +77,16 @@ const CartCheckout = () => {
                       <FormCheckout createOrder={createOrder}/>
                   </div>
               </div>
+              </>
+            }
             </>
           }
         </>
       }
+
       </div>
       <FooterMenu/>
+
     </div>
 
   )

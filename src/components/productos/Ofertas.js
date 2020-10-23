@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import {NavLink} from 'react-router-dom';
 import CardProductoCarrousel from './CardProductoCarrousel';
 import {getFirestore} from '../../firebase';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -19,7 +18,8 @@ export default function Ofertas(){
         setLoading(true);
         const db = getFirestore();
         const itemCollection = db.collection("productos");
-        itemCollection.get().then((query)=>{
+        const ofertas = itemCollection.where('categoria','array-contains', 'ofertas' );
+        ofertas.get().then((query)=>{
             if(query.size === 0){
                 console.log('no hay resultados');
             }

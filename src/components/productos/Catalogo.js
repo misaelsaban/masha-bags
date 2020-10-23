@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import {NavLink} from 'react-router-dom';
 import CardProducto from './CardProducto';
 import NavbarMenu from '../menu/NavBarMenu';
 import FooterMenu from '../menu/FooterMenu';

@@ -7,7 +7,8 @@ import FooterMenu from '../menu/FooterMenu';
 import {getFirestore} from '../../firebase';
 import Loading from '../general/Loading';
 import Page404 from '../general/Page404';
-
+import ListaProductosEnCarrito from '../cart/ListaProductosEnCarrito';
+import {Link} from 'react-router-dom';
 
 
 
@@ -33,7 +34,7 @@ function Product() {
     if(cart.length !== 0){
       
       for (let i = 0; i < cart.length; i++) {
-        if(cart[i].id == data.id){
+        if(cart[i].id === data.id){
             act = false;
             cart[i].cantidad = cart[i].cantidad + cantidad;
             console.log('solo actualiza cantidad');          
@@ -58,6 +59,7 @@ function Product() {
     }
 
     setCant(canti);
+    setShowModal(true);
   }
 
   // Funcion que tra la cantidad
@@ -70,6 +72,7 @@ function Product() {
   const [data,setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page404, setPage404] = useState(false);
+  const [showModal,setShowModal] = useState(false);
 
   useEffect(() => {
       setLoading(true);
@@ -94,12 +97,20 @@ function Product() {
 
   useEffect(()=>{
     console.log(data);
+    
   }, [data])
 
  
   useEffect(()=>{
     console.log(cart);
   },[cart]);
+
+
+  const showHideClassName = showModal ? {"display": "block","background-color": "#00000047"} : {"display": "none"};
+
+  const handleClose = () => {
+    setShowModal(false);
+  }
 
 return (
     <>
@@ -128,7 +139,29 @@ return (
           </div>
           </>
         }
-      </div> }    
+      </div> }
+      <div className="modal bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style={showHideClassName}>
+        <div className="modal-dialog modal-lg">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">Carrito de Compras</h5>
+              <button type="button" className="close" onClick={handleClose}>
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body pl-5 pr-5">
+            { cart.length === 0
+            ? <div className="text-center mt-5">Su carrito no tiene productos, puede comprar haciendo <Link to={'/productos'}><a className="link" href="#">CLIC AQUÍ.</a></Link></div>
+            : showModal
+              ?<ListaProductosEnCarrito margin={true} modal={true}/>
+              : <></>
+            }
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
     <FooterMenu/>
     </>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import {NavLink} from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import CardProducto from './CardProducto';
 import NavbarMenu from '../menu/NavBarMenu';
@@ -18,7 +17,7 @@ export default function CatalogoPorCategoria(){
         setLoading(true);
         const db = getFirestore();
         const itemCollection = db.collection("productos");
-        const prodsPorCate = itemCollection.where('categoria', '==' , idCate );
+        const prodsPorCate = itemCollection.where('categoria','array-contains', idCate );
         prodsPorCate.get().then((query)=>{
             if(query.size === 0){
                 console.log('no hay resultados');

@@ -81,13 +81,13 @@ class NavBarMenu extends React.Component{
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link to={'/categories/verano-2020'}>
-                      <a className="nav-link" href="#">VERANO 2020</a>
+                    <Link to={'/categories/verano-2021'}>
+                      <a className="nav-link" href="#">VERANO 2021</a>
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link to={'/categories/winter-outlet'}>
-                      <a className="nav-link" href="#">WINTER OUTLET</a>
+                    <Link to={'/categories/outlet-de-invierno'}>
+                      <a className="nav-link" href="#">OUTLET DE INVIERNO</a>
                     </Link>
                   </li>
                 </ul>
